@@ -1,0 +1,77 @@
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li><i class="icon-share"></i> <a href="#/examPaperManage/list.html">卷子管理</a>
+			<i class="fa fa-angle-right"></i></li>
+		<li><span>{{$state.current.data.pageTitle}}</span></li>
+	</ul>
+</div>
+<div class="page-title"></div>
+<div class="content">
+	<div class="portlet light">
+		<div class="portlet-heading">
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-add blue" ng-click="back()">
+						<span>返回 </span>
+					</button>
+					<button ng-if="!readonlyInput" class="btn btn-submit blue" ng-disabled="save"
+						ng-click="submit(form)">
+						<span>保存 </span>
+					</button>
+					<button ng-if="!readonlyInput" class="btn btn-reset blue"
+						ng-click="reset(form)">
+						<span>重置 </span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="portlet-body" style="margin-top: 10px">
+			<div class="form">
+				<!-- BEGIN FORM-->
+				<form name="form" class="form-horizontal" novalidate>
+					<div class="portlet box">
+						<!-- 基本信息开始 -->
+						<div class="row">
+							<form id="form" name="form" class="form-horizontal" novalidate>
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-11">
+											<div class="col-md-6">
+													<div class="form-group"
+														ng-class="{ 'has-error' :(form.aContent.$touched || form.$submitted ) && form.aContent.$invalid}">
+														<label class="control-label col-md-4">卷子名<span
+															class="text-danger">*</span></label>
+														<div class="col-md-8">
+															<input name="aContent" maxlength="20" ng-maxlength="20"
+																type="text" placeholder="卷子名" 
+																class="form-control form-control-inline"
+																ng-model="model.examName" required>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label col-md-4">题目<span
+															class="text-danger">*</span></label>
+														<div class="col-md-8">
+														    <div class="col-md-2" ng-repeat="x in questions">
+														        <label><input id={{x.qId}} ng-checked="checked[x.qId]" name="questionId" type="checkbox" ng-model="check[x.qId]" ng-click="chooseQuestion(x.qId,check[x.qId])" />{{x.qId}} </label> 
+														    </div>
+														 </div>
+													</div>
+												</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- 信息结束 -->
+					</div>
+					<!-- 内容页结束 -->
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主内容结束-->

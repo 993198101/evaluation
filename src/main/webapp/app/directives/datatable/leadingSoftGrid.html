@@ -1,0 +1,42 @@
+<table class="table table-striped table-bordered table-hover">
+    <thead ng-if="config.showTHead !== false">
+    <tr style="background-color: #EEEEEE">
+        <th ng-repeat="column in columns"  ng-click="onHeaderClicked(column)" width="{{column.width}}">
+            <div ng-if="!isNullString(column.radioOrCheckbox)">
+                <input ng-if="column.radioOrCheckbox === 'checkbox'" type="checkbox" id="checkAllItem" ng-click="gridCheckAllEvent()"/>
+            </div>
+            <div ng-if="isNullString(column.radioOrCheckbox) && !isNullString(column.labelTemplateUrl)" class="pull-left" ng-include="column.labelTemplateUrl"></div>
+            <div ng-if="isNullString(column.radioOrCheckbox) && isNullString(column.labelTemplateUrl)" class="pull-left" ng-bind="column.label"></div>
+            <div ng-show="column.sortable" class="pull-right" ng-class="{invisible: !isSortedBy(column.name)}">
+                <i ng-show="isOrder('asc')" class="fa fa-sort-asc fa-lg"></i>
+                <i ng-show="isOrder('desc')" class="fa fa-sort-desc fa-lg"></i>
+            </div>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-if="isEmpty(rows)">
+        <td colspan="{{columns.length}}">
+            <div style="text-align: center;">
+                <span>无数据</span>
+            </div>
+        </td>
+    </tr>
+    <tr ng-if="!isEmpty(rows)" ng-repeat="row in rows">
+        <td ng-repeat="column in columns" ng-class="column.class" ng-style="column.attributes || {'text-align':'left','vertical-align': 'middle'}">
+            <input ng-if="getType(column) === 'checkbox'" type="checkbox" class="checkItem" item="{{row}}" ng-click="gridCheckItemEvent()"/>
+            <input ng-if="getType(column) === 'radio'" type="radio" name="selectItem" item="{{row}}" ng-click="gridRadioItemEvent(row)"/>
+            <div ng-if="getType(column) === 'template'" ng-include="column.templateUrl"></div>
+            <span ng-if="getType(column) === 'click'">
+                <a href="javascript:void(0)" ng-class="column.click.class" ng-click="column.click.linkFun(row)">{{row[column.name]}}</a>
+            </span>
+            <span ng-if="getType(column) === 'values'" >
+                <span ng-repeat="columnValue in column.values.data" ng-class="columnValue.class" ng-if="getColumnValue(column,columnValue) === row[column.name]">{{getColumnLabel(column,columnValue)}}</span>
+            </span>
+            <span ng-if="getType(column) === 'other'">
+                {{row[column.name]}}
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>

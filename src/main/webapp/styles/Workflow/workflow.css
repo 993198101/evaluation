@@ -1,0 +1,299 @@
+.ep {
+    position: absolute;
+    bottom: 45%;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    cursor: pointer;
+    box-shadow: 0 0 2px black;
+    -webkit-transition: -webkit-box-shadow 0.25s ease-in;
+    -moz-transition: -moz-box-shadow 0.25s ease-in;
+    transition: box-shadow 0.25s ease-in;
+}
+.item {
+    position: absolute;
+    width: 90%;
+    cursor: pointer;
+    font-size: 11px;
+    -webkit-transition: background-color 0.25s ease-in;
+    -moz-transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+}
+.aLabel {
+    padding: 0!important;
+}
+#Content-Left{
+    height:450px;
+    width: 150px;
+    float:left;
+    overflow: hidden;
+}
+#Content-Left div {
+    cursor: move;
+    overflow: hidden;
+    margin: 15px auto;
+    margin-bottom: 5px;
+}
+#Content-Left>p {
+    margin-bottom: 0;
+    text-align: center;
+}
+#Content-Left div p{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
+    /*padding-top: 8px;*/
+}
+.startDom {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%!important;
+    background-color: #35cc17;
+    /*background-image: url("/styles/img/workflow/start.png");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#Content-Left .task {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #a7c0e0;
+    border-radius: 25px!important;
+    /*background-image: url("/styles/img/workflow/task.png");*/
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#Content-Left .line {
+    width: 50px;
+    height: 30px;
+    background-image: url("/styles/img/workflow/line.png");
+    background-repeat: no-repeat;
+    background-size: initial;
+    margin-right: 20px;
+}
+.end {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%!important;
+    background-color: #f54336;
+    /*background-image: url("/styles/img/workflow/end.png");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.joinNode,.branchNode,.parallelNode {
+    width: 35px;
+    height:35px;
+    text-align: center;
+    border-radius: 50%!important;
+}
+.joinNode {
+    background-image: url("/styles/img/workflow/Confluence.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.branchNode {
+    background-image: url("/styles/img/workflow/branch.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallelNode {
+    background-image: url("/styles/img/workflow/parallel.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#Content-Main{
+    position: relative;
+    height:450px;
+    overflow: hidden;
+    width:calc(100% - 150px);
+    float:left;
+}
+#Content-Main div p{
+    height: 100%;
+    vertical-align: middle;
+    margin: 10px auto;
+}
+#Content-Main .task {
+    width: 100px;
+    min-height: 50px;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+}
+#Content-Main .taskPendingAudit {
+    background-color: #a7c0e0;
+    border-radius: 25px!important;
+    /*background-image: url("/styles/img/workflow/task.png");*/
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.taskPass {
+    background-image: url("/styles/img/workflow/task.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#Content-Main .startDom {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    color: #fff;
+}
+#Content-Main .end {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    color: #fff;
+}
+#Content-Main .task span {
+    display: block;
+    margin: 5px;
+}
+#Content-Main .joinNode,#Content-Main .branchNode,#Content-Main .parallelNode {
+    width: 50px;
+    height: 50px;
+   background-color: #fff;
+}
+.Clear{
+    clear:both;
+}
+ul {
+    list-style: none;
+}
+.aLabel {
+    color: #232323;
+    padding: 2px;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 0.8;
+    transform: translate(-50% , -100%)!important;
+}
+/*模态层样式*/
+.nav-stacked {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.nav-stacked li a{
+    /*border-radius: 50px!important;*/
+}
+.nav.nav-pills.nav-stacked>li {
+    text-align: left;
+}
+.nav.nav-pills.nav-stacked>li>a>i {
+    margin-right: 5px;
+}
+.nav.nav-pills.nav-stacked>li>a>span {
+    float: right;
+    margin-top: 2.25px;
+}
+
+/*重写label样式*/
+.jsplumb-overlay {
+    background: #fff;
+    cursor: pointer;
+}
+.jsplumb-connector {
+    cursor: pointer;
+}
+/*编辑模态层样式*/
+.modal-lg {
+    /*width: 950px!important;*/
+    /*top: -10px!important;*/
+}
+.basic {
+    font-size: 0;
+}
+/*自定义表格checkbox*/
+.customTable thead tr {
+    background-color: #eee;
+}
+.customTable th {
+    text-align: center;
+}
+.customTable tr input[type="checkbox"] {
+    margin: 4px auto;
+    display: block;
+}
+#formFieldTable table {
+    border-left: 0;
+}
+#formFieldTable tbody {
+    display:block;
+    max-height:195px;
+    overflow-y:auto;
+    overflow-x: hidden;
+}
+
+#formFieldTable thead,#formFieldTable tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+#formFieldTable tr td,#formFieldTable tr th{
+    width: 89px;
+    word-wrap: break-word;
+}
+#formFieldTable tbody tr td {
+    border-bottom: 0;
+    border-left: 0;
+}
+#formFieldTable thead tr th {
+    border-bottom: 1px;
+}
+/*选择人员数*/
+.selected-parent-block {
+    border: 1px solid #e5e5e5;
+    width: 100%;
+    float:left;
+    cursor: text;
+    padding: 3px;
+}
+.selected-parent-block .selected-block {
+    border: 1px solid #e5e5e5;
+    float: left;
+    padding: 1px 10px;
+    margin: 3px 2px;
+    line-height: 22px;
+    vertical-align: middle;
+    border-radius: 5px !important;
+    position: relative;
+}
+
+.selected-button {
+    cursor: pointer;
+    background-color: rgba(244, 246, 250, 1) !important;
+}
+
+.selected-block .select2-selection_choice_remove {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.selected-parent-block .selected-block-placeholder {
+    height: 26px;
+    line-height: 26px;
+    padding-left: 8px;
+}
+
+.selected-parent-block .selected-block-placeholder span{
+    color: #999999;
+    font-size: 13px;
+}
+#scheduleDepartmentAndUserTree .jstree-icon.jstree-themeicon {
+    background-size: contain !important;
+}
+.modal-schedule-content {
+    height: 360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

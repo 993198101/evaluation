@@ -1,0 +1,84 @@
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li><i class="icon-share"></i> <span>评教安排管理</span></li>
+	</ul>
+</div>
+<div class="page-title"></div>
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet-header">
+				<div class="pull-left">
+					<a class="btn blue" href="javascript:;" ng-click="create()">新建</a>
+				</div>
+				<div class="pull-right">
+					<button class="btn red" data-toggle="collapse"
+						data-target="#search" aria-expanded="false" aria-controls="search">
+						<span>高级查询</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 高级查询 -->
+	<div class="row" style="background-color: #eee;">
+		<div class="form-horizontal collapse" aria-expanded="true" id="search">
+			<div class="portlet-body" style="margin-top: 10px">
+				<div class="form">
+					<!-- BEGIN FORM-->
+					<form name="form" class="form-horizontal" novalidate>
+						<div class="portlet box">
+							<!-- 基本信息开始 -->
+							<div class="row">
+								<form id="form" name="form" class="form-horizontal" novalidate>
+									<div class="form-body">
+										<div class="row">
+											<div class="col-md-11">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="control-label col-md-4">学科名</label>
+														<div class="col-md-8">
+															<input name="evaluationName" maxlength="20"
+																ng-maxlength="20" type="text" placeholder="学科名"
+																class="form-control form-control-inline"
+																ng-model="searchable.curName" required>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- 信息结束 -->
+						</div>
+						<!-- 内容页结束 -->
+					</form>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-1 col-md-offset-9">
+					<button type="button" class="btn btn-common" ng-click="search()">
+						确定</button>
+				</div>
+				<div class="col-md-1">
+					<button type="button" class="btn btn-success"
+						ng-click="resetSearchable()">重置</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 高级查询的结束 -->
+	<div class="row">
+		<ng-table columns="columns" sort="sort" order="order"
+			pageable="pageable" rows="rows"> </ng-table>
+	</div>
+	<!-- END MAIN CONTENT -->
+	<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+       <a class="btn blue btn-xs" ng-click="onActionClick(row.curId,'edit')">编辑</a>
+        <a class="btn blue btn-xs" ng-click="onActionClick(row.curId,'delete')">删除</a>
+        <!--<a class="btn blue btn-xs" ng-click="onActionClick(row,'changeStatus')">{{'start'==row.statue ? '禁用':'启用'}}</a>-->
+    </div>
+</script>
+	<!-- END Portlet PORTLET-->

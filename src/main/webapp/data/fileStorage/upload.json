@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "data": {
+    "id": 4,
+    "no": "88392e4e-2202-4f4f-836c-7cb34c759a4b",
+    "objectType": "picture",
+    "filePath": "C201611230_14803907099567102.jpg",
+    "fileName": "jason.jpg",
+    "fileSize": 82264,
+    "thumbnailFilePath": "C201611230_14803907099562298.jpg",
+    "originalFilePath": "C201611230_14803907095977870.jpg",
+    "duration": 0
+  }
+}

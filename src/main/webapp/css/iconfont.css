@@ -1,0 +1,29 @@
+
+@font-face {
+  font-family: "iconfont";
+  src:url('../fonts/iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-ink14:before { content: "\e612"; }
+
+.icon-hert:before { content: "\e616"; }
+
+.icon-137:before { content: "\e682"; }
+
+.icon-dian1:before { content: "\e629"; }
+
+.icon-3:before { content: "\e70e"; }
+
+.icon-dian:before { content: "\e650"; }
+
+.icon-yunongtongjieyuefuwu:before { content: "\e62d"; }
+
+.icon-xinxing:before { content: "\e67d"; }
+

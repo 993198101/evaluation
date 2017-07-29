@@ -1,0 +1,895 @@
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: alpha(opacity=60);
+    z-index: 1051;
+    display: none;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+}
+.portlet-header .operation-btn {
+    margin-bottom: 12px;
+}
+
+.portlet-header .operation-search{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+
+.portlet-body .table-info {
+    padding-left: 10px;
+}
+
+.portlet-body .table-pagination {
+    margin-top: 0px;
+}
+
+.page-title + .alert {
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.page-title + .alert .close {
+    margin-top: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.c_red {
+    color: red;
+}
+
+.form_error {
+    color: #a94442;
+}
+
+.chartDisc{
+    margin-top: 80px;
+
+}
+
+.data-statistics{
+    background: #e0eaf6;
+    height: 38px;
+    line-height: 38px;
+}
+
+.chart-diff-title{
+    border: 1px solid #e7e7eb;
+}
+
+.chart-diff-title .detail-title{
+    margin-top: 10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.chart-diff-title .type-title{
+    float: right;
+    margin-top: 10px;
+    color: grey;
+
+}
+
+.chart-diff-content{
+    height: 300px;
+}
+.chart-diff-content .chart-left{
+    height: 250px;
+    margin-top: 25px;
+    border-right: 1px dashed #bdbdbd;
+}
+.chart-diff-content .chart-right{
+    margin-top: 40px;
+    padding-left: 40px;
+    height: 250px;
+}
+
+.chart-diff-content .chart-right .chart-detail-info{
+    font-size: 14px;
+}
+
+.chart-diff-content .compare-area-chart{
+    margin-top: 60px;
+    }
+.chart-diff-content .compare-area-chart-detail{
+    margin-top: 60px;
+}
+.chart-diff-content .compare-area-chart-detail .detail-bottom{
+    margin-top: 85px;
+}
+.compare-area-chart{
+    height: 121px;
+}
+
+#baiduMap {
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+    margin:0;
+    font-family:"微软雅黑";
+}
+
+
+/* wangwj alert 弹出通知消息 START*/
+.growl-position{
+    position: fixed;
+    width: 25%;
+    left: 75%;
+    top: 95%
+}
+.growl-item.ng-enter,
+.growl-item.ng-leave {
+    -webkit-transition:1s linear all;
+    -moz-transition:1s linear all;
+    -o-transition:1s linear all;
+    transition:1s linear all;
+}
+/* wangwj alert 弹出通知消息 END */
+
+/* wangzk alert 群组管理 操作结果显示 START */
+#oprResult .alert {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+/* wangzk alert 群组管理 操作结果显示 END */
+
+
+/*set color css by wangwj start*/
+
+/*w开头表示宽度,h开头表示高度,bd为对边框的设置,mg为对外边距的设置,pd为对内边距的设置*/
+
+
+.bd_0{border:0px solid #ccc;}
+.bd_1{border:1px solid #ccc;}
+.bd_2{border:2px solid #ccc;}
+.bdt_1 {border-top:1px solid #ccc;}
+.bdb_1 {border-bottom:1px solid #ccc;}
+.bdl_1 {border-left:1px solid #ccc;}
+.bdr_1 { border-right:1px solid #ccc;}
+.bdtd_1 {border-top:1px dotted #ccc;}
+
+.mg0 {margin:0px;}
+.mg1 {margin:1px;}
+.mg5 {margin:5px;}
+.mg10 {margin:10px;}
+.mg15 {margin:15px;}
+.mg20 {margin:20px;}
+.mgt5 {margin-top:5px;}
+.mgt10 {margin-top:10px;}
+.mgt15 {margin-top:15px;}
+.mgt20 {margin-top:20px;}
+.mgb5 {margin-bottom:5px;}
+.mgb10 {margin-bottom:10px;}
+.mgb15 {margin-bottom:15px;}
+.mgb20 {margin-bottom:20px;}
+.mgl5 {margin-left:5px;}
+.mgl10 {margin-left:10px;}
+.mgl15 {margin-left:15px;}
+.mgl20 {margin-left:20px;}
+.mgr5 {margin-right:5px;}
+.mgr10 {margin-right:10px;}
+.mgr15 {margin-right:15px;}
+.mgr20 {margin-right:20px;}
+.mg_center { margin:auto;}
+
+.pd0 {padding:0px;}
+.pd1 {padding:1px;}
+.pd5 {padding:5px;}
+.pd10 {padding:10px;}
+.pd15 {padding:15px;}
+.pd20 {padding:20px;}
+.pdt5 {padding-top:5px;}
+.pdt10 {padding-top:10px;}
+.pdt15 {padding-top:15px;}
+.pdt20 {padding-top:20px;}
+.pdb5 {padding-bottom:5px;}
+.pdb10 {padding-bottom:10px;}
+.pdb15 {padding-bottom:15px;}
+.pdb20 {padding-bottom:20px;}
+.pdl5 {padding-left:5px;}
+.pdl10 {padding-left:10px;}
+.pdl15 {padding-left:15px;}
+.pdl20 {padding-left:20px;}
+.pdr5 {padding-right:5px;}
+.pdr10 {padding-right:10px;}
+.pdr15 {padding-right:15px;}
+.pdr20 {padding-right:20px;}
+
+/*c_开头为字体颜色*/
+.c_grey {color:#999;}
+.c_blue {color:#0088cc;}
+.c_red {color:#E62614;}
+.c_green {color:#090;}
+.c_orange {color:#F90;}
+.c_write {color:#fff;}
+.c_ccc {color:#ccc;}
+.c_666 {color:#666;}
+.c_333 {color:#333;}
+.c_999 {color:#999;}
+
+/*按内容性质定义字体颜色*/
+.c_warning{color:#c09853}
+.c_error{color:#b94a48}
+.c_success {color:#468847}
+
+/*fs开头为字号定义*/
+.fs10 {font-size:10px;}
+.fs11 {font-size:11px;}
+.fs12 {font-size:12px;}
+.fs13 {font-size:13px;}
+.fs14 {font-size:14px;}
+.fs15 {font-size:15px;}
+.fs16 {font-size:16px;}
+.fs18 {font-size:18px;}
+.fs19 {font-size:19px;}
+.fs20 {font-size:20px;}
+.fs21 {font-size:21px;}
+.fs22 {font-size:22px;}
+.fs23 {font-size:23px;}
+.fs24 {font-size:24px;}
+.fs25 {font-size:25px;}
+
+.modal-dialog {
+    width: 750px !important;
+    margin: 30px auto;
+}
+.person1{
+    border: 1px solid;
+    border-color:darkgray;
+    padding-left: 15px;
+    margin-left: 14px;
+    height:310px;
+    width:310px;padding:20px;
+    border-radius: 15px
+}
+.person2{
+    border: 1px solid;
+    border-color:darkgray;
+    margin-left: 14px;
+    height:250px;
+    width:310px;
+    padding:20px 20px 20px 15px;
+    border-radius: 15px
+}
+.content .portlet-header {
+    padding-top: 5px;
+}
+.form-group .radio-list{
+    padding-left: 35px;
+}
+.ng-table td{
+    vertical-align: middle!important;
+}
+.portlet.light {
+    padding: 0;
+}
+/*--门户首页--*/
+.point{
+    cursor: pointer;
+}
+.titleShadow{
+    box-shadow: 0px 1px 2px #ccc;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.titleShadow p {
+    font-size: 25px;
+    font-family: 微软雅黑;
+}
+
+.container-fluid {
+    margin: 0 auto;
+}
+
+.calendarList {
+    background-color: white;
+    border-radius: 5px !important;
+    margin-top: 30px;
+    height: 220px;
+    box-shadow: 1px 2px 3px #ccc;
+    padding: 10px 0px 10px 0px;
+}
+
+.calendarList h4, .map h4 {
+    font-family: 'Arial Negreta', 'Arial';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 15px;
+    color: #434343;
+}
+
+#importantList {
+    position: absolute;
+    width: 3px;
+    height: 13px;
+    background: inherit;
+    background-color: red;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+#unimportantList {
+    position: absolute;
+    width: 3px;
+    height: 13px;
+    background: inherit;
+    background-color: green;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.wether {
+    background-color: white;
+    border-radius: 5px !important;
+    margin-top: 30px;
+    height: 220px;
+    box-shadow: 1px 2px 3px #ccc;
+    padding: 10px 15px 10px 15px;
+}
+
+.usualList .col-md-3 {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.picView {
+    background-color: white;
+    border-radius: 3px !important;
+    margin-top: 30px;
+    height: 220px;
+    width: 100%;
+    box-shadow: 1px 2px 3px #ccc;
+    padding: 5px;
+}
+
+.picView img {
+    height: 210px;
+}
+
+.map {
+    box-shadow: 1px 2px 3px #ccc;
+    padding: 10px;
+    background-color: white;
+    border-radius: 3px !important;
+    margin-top: 30px;
+    height: 350px;
+}
+
+#allmap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: "微软雅黑";
+    border-radius: 5px !important;
+}
+
+.map button {
+    border-radius: 5px !important;
+}
+
+.workList table tr td {
+    border-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.list table tr td {
+    border-top: 0;
+    padding: 5px 10px 5px 3px;
+}
+/*--门户首页--*/
+
+/*文稿红色标题样式*/
+.fromStyle .type-title {
+    font-size: 56px;
+    color: red;
+    text-align: center;
+}
+
+.box-box {
+    margin: 2% 0 0 13%;
+    padding: 2% 5%;
+    border: 1px solid #000000;
+}
+
+.box1 {
+    border-bottom: 5px solid red;
+    padding-bottom: 16px;
+}
+
+.box2 {
+    padding-top: 25px;
+    border-bottom: 1px solid red;
+    padding-bottom: 7px;
+    /*width:65%;*/
+    text-align: center;
+    margin: 0 auto;
+    /*margin-left:14%;*/
+}
+
+.row-label {
+    /*width:61%;*/
+    /*margin-left:14%;*/
+}
+
+.row-label label, row-label.p {
+    font-size: 20px;
+}
+
+/*重写模态层样式*/
+.modal-content {
+    top: 40px;
+}
+
+
+/*党组会议议题表单*/
+.claimForm {
+    margin-top: 40px;
+    padding-bottom: 30px;
+    border: 1px gainsboro solid;
+}
+
+.claimFormRow {
+    margin-top: 30px;
+    height: 60px;
+}
+
+.claimFormRow1 {
+    height: 100px;
+}
+
+.claimFormRow2 {
+    height: 160px;
+}
+
+.panel-default {
+    height: 1000px;
+}
+
+.accessoriesForm th {
+    background-color: lightgrey;
+}
+
+.textareaBorder {
+    margin: 0px;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow-y: hidden;
+}
+
+/*重写portlet样式*/
+.portlet.box > .portlet-title {
+    color: #000;
+    background-color: #f5f6fa;
+    border: solid #E4E4E4 1px;
+    border-left: 5px solid #0098ce;
+}
+
+.portlet.box > .portlet-body {
+    background-color: #fff;
+    border: solid #E4E4E4 1px;
+    border-top: none;
+}
+
+/*overflowAuto样式，显示表格的高度，超出部分显示滚动条*/
+.overflowAuto {
+    overflow-y: scroll;
+}
+
+.overflowAuto .table-scrollable {
+    margin: 0 !important;
+}
+
+.chats li.in .message {
+    text-align: left;
+    border-left: none;
+    border-radius: 3px !important;
+    margin-left: 0px;
+    background: transparent;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.font-blue {
+    color: #5b9bd1;
+}
+
+.portlet.box-all > .portlet-body {
+    background-color: #fff;
+    border: solid #E4E4E4 1px;
+}
+
+/*会议管理*/
+.labelLeft {
+    margin-left: 5px;
+
+}
+
+.right-div {
+    padding-right: 0;
+}
+.hover-style .row:hover{
+    background-color: lightgrey;
+}
+.personChecked {
+    background-color: lightgrey;
+}
+.hover-style .row .back-circle{
+    position: absolute;
+    z-index: 3;
+    font-size: 20px;
+    color: white;
+    padding-top: 12px;
+    padding-left: 8px;
+}
+
+.hover-style .row .imgHide{
+    background-color: lightgrey;
+    opacity: 0.3;
+}
+.hover-style .row .hide-this{
+    position: absolute;
+    z-index: 3;
+    color: white;
+    font-size: 20px;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+.hover-style .row:hover .imgShow{
+    background-color: lightgrey;
+    opacity: 0.3;
+}
+
+
+/*日程管理相关样式start*/
+#calendar .fc-state-default {
+    background-image: none;
+}
+
+#calendar .fc-createSchedule-button {
+    /*color: #5b9bd1;*/
+    /*background-color: transparent;*/
+    /*border: 1px solid #5b9bd1;*/
+    /*-moz-border-radius: 15px;*/
+    /*-webkit-border-radius: 15px;*/
+    /*border-radius:3px !important;*/
+    width: 81px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(18, 150, 219, 1);
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #1296DB;
+    outline: none;
+}
+
+#calendar .fc-next-button {
+    /*color: white;*/
+    /*background-color: #5b9bd1;*/
+    /*border-radius:5px !important;*/
+    /*width:25px;*/
+    padding: 0;
+    width: 25px;
+    height: 30px;
+    /*background-image: url(/styles/img/pc5_日程/u45753.png);*/
+    background-color: rgba(18, 150, 219, 1);
+    border: none;
+    border-radius: 5px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FFFFFF;
+    outline: none;
+}
+
+#calendar .fc-prev-button {
+    /*color: white;*/
+    /*background-color: #5b9bd1;*/
+    /*border-radius:5px !important;*/
+    /*width:25px;*/
+    padding: 0;
+    width: 25px;
+    height: 30px;
+    /*background-image: url(/styles/img/pc5_日程/u45753.png);*/
+    background-color: rgba(18, 150, 219, 1);
+    border: none;
+    border-radius: 5px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FFFFFF;
+    outline: none;
+}
+
+#calendar .fc-today-button {
+    /*color: white;*/
+    /*background-color: #5b9bd1;*/
+    /*border: 1px solid #5b9bd1;*/
+    /*-moz-border-radius: 15px;*/
+    /*-webkit-border-radius: 15px;*/
+    /*border-radius:3px !important;*/
+    width: 81px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(18, 150, 219, 1);
+    border: none;
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FFFFFF;
+    outline: none;
+}
+
+#calendar .fc-day-header {
+    background-color: rgba(238, 238, 238, 1);
+}
+
+#calendar .fc-day-grid-event {
+    background: inherit;
+    background-color: rgba(155, 89, 182, 1);
+    border: none;
+    border-radius: 5px !important;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.calendar-delete-btn {
+    width: 74px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 97, 89, 1);
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FF6159;
+}
+
+.calendar-edit-btn {
+    width: 73px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(18, 150, 219, 1);
+    border: none;
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FFFFFF;
+}
+
+.calendar-cancel-btn {
+    width: 74px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: grey;
+}
+
+.calendar-prev-btn {
+    width: 94px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(18, 150, 219, 1);
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #1296DB;
+}
+
+.calendar-next-btn {
+    width: 94px;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(18, 150, 219, 1);
+    border-radius: 3px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #1296DB;
+}
+
+.calendar-list-left-block {
+    width: 5px;
+    height: 15px;
+    background: inherit;
+    border: none;
+    border-radius: 5px !important;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: inline-block;
+    margin: auto 0;
+    vertical-align: middle;
+}
+
+.calendar-list-left-block-green {
+    background-color: rgba(27, 188, 155, 1);
+}
+
+.calendar-list-left-block-red {
+    background-color: rgba(243, 87, 93, 1);
+}
+
+.calendar-list-left-block-purple {
+    background-color: rgba(155, 89, 182, 1);
+}
+/*日程管理相关样式end*/
+.member-title {
+    color: #0a0a0a!important;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 26px;
+}
+
+.member-area {
+    height: 30px;
+    cursor: pointer;
+}
+
+.member-area .member-icon {
+    margin: 2px 0;
+    height: 24px;
+    min-width: 24px;
+}
+.member-area:hover{
+    background-color: #d3d3d3;
+}
+
+.member-un-select {
+    height: 30px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 1px;
+    text-decoration: none!important;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.member-un-select .member-icon {
+    margin: 2px 0;
+    height: 24px;
+}
+
+.member-un-select:hover{
+    background-color: #d3d3d3;
+}
+
+/*信息发布页面样式*/
+.imageUploadAttaCont {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 5px;
+}
+.imageUploadAttaCont>div {
+    padding-right: 20px;
+    padding-top: 5px;
+    width: 90px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+}
+.imageUploadAttaBox {
+    width: 50px;
+    height: 50px;
+    background-image: url("/styles/img/upload.png");
+    position: relative;
+    left: 5px;
+}
+.imageUploadAttaBtn {
+    cursor: pointer;
+    position: absolute;
+    top: -3px;
+    left: 43px;
+    width: 17px;
+    height: 17px;
+    background-image: url("/styles/img/icon_main.png");
+    background-position: -63px 1px;
+}
+.imageUploadAttaBtn:hover {
+    width: 18px;
+    height: 18px;
+    background-position: -96px 0px;
+}
+.imageUploadAttaTxt {
+    width: 90px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+    color: #232323;
+}
+
+.grayBackground{
+    background-color: #bababa;
+}
+
+/*手写签名*/
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*.containerH {*/
+    /*border: 1px solid #3598dc;*/
+    /*padding: 10px 10px 40px 10px;*/
+    /*position: relative;*/
+    /*margin: 0 auto 0 auto;*/
+/*}*/
+
+.containerH .signature {
+    border: 1px solid #3598dc;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.containerH .signature canvas {
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.container .buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.containerH .sizes {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.containerH .sizes input {
+    width: 4em;
+    text-align: center;
+}

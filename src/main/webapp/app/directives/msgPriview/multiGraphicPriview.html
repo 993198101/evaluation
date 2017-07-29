@@ -1,0 +1,29 @@
+<div class="col-md-4">
+
+    <div class="category_1 custom-menu-preview">
+        <div ng-click="selectGraphicItem()">
+            <div class="mix-inner thumbnail " ng-class={"choseBorder":first.isSelected}>
+                <span class="js_delete icon_default icon_delete delete_artical" ng-show="first.delBtnShow" ng-click="deleteGraphic(first)"></span>
+                <div ng-show="$flow.files.length || first.imgSrc" flow-init>
+                    <img id="blankGraphicSingleImg"  flow-img="file" class="img-responsive" ng-src="{{first.imgSrc}}">
+                </div>
+            </div>
+            <div class="caption multiImageFirst" style="margin-top:-60px;">
+                <p id="multiTitle"  ng-bind-html='first.title | to_html' class="video_sub_title"></p>
+            </div>
+        </div>
+        <div ng-if="addGraphic" class="multi_choose_mode_style" ng-repeat="template in templates" ng-click="selectGraphicItem(template)">
+            <div ng-class={"choseBorder":template.isSelected} id="nextImg" >
+                <span class="js_delete icon_default icon_delete delete_artical" ng-show="template.delBtnShow" ng-click="deleteGraphic($index)"></span>
+                <p class="video_artical_title" id="subTitle" ng-bind-html='template.title | to_html'></p>
+
+                <img name="multiImg" style="" class="multiImage" ng-src="{{template.imgSrc}}">
+                <!--<img name="multiImg" style="" class="multiImage" ng-src="{{template.imgSrc}}">-->
+            </div>
+        </div>
+        <div class="multiAdd" ng-show="addBtnShow">
+            <span ng-click="addTemplate()" name="icon_message_add_btn_center"
+                  class="icon_message_add_btn_center"></span>
+        </div>
+    </div>
+</div>

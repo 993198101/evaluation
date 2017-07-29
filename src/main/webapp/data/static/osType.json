@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "key": "1",
+      "text": "IOS"
+    },
+    {
+      "key": "2",
+      "text": "ANDROID"
+    },
+    {
+      "key": "3",
+      "text": "WEB"
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>个人信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <style>
+        .mui-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 998;
+            background-color: rgba(0,0,0,.3);
+            /*  background:url("images/loading.gif") 10px center no-repeat;*/
+            background-image: url("images/loading.gif") ;
+            background-position:45% 50% ;
+            background-repeat: no-repeat;
+        }
+        .mui-icon-left{
+           color:rgb(230,149,84) ;
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+        .mui-icon-left img{
+           width: 18px;
+            height: 18px;
+        }
+        .mui-table-view-cell:after{
+            left: 0px!important;
+        }
+        .mineLeft{
+            font-size: 18px;
+           color: #787878;
+        }
+        .mineFont{
+            font-size: 18px;
+            color: #8f8f94;
+        }
+        .mui-icon-right{
+            color: #8f8f94;
+        }
+        .mui-pull-right{
+           padding: 10px 0px;
+        }
+        #footer .mui-active{
+            color: #ec7710;
+        }
+        .begin{
+    background-color: #eeeeee;           //
+}
+.begin1{
+    background-color:#cccccc;
+}
+.begin2{
+    background-color:#aaaaaa ;
+}
+.errormessage{
+color:red;
+}
+    </style>
+    <!-- 修改密码 -->
+    <script type="text/ng-template" id="editPassword.html">
+        <div class="modal-header modalHeader">
+            <span class="modal-title">修改密码</span>
+            <button type="button" class="modal-title close right" ng-click="$ctrl.cancel()">
+                &times;
+            </button>
+        </div>
+        <div class="modal-body">
+            <form role="form" novalidate name="myForm" class="center-block">
+                <div class="container-fluid">
+                    <div class="row form-group form-inline">
+                        <div class="col-xs-3  text-align-right padding0" style="height:35px;line-height:35px;overflow:hidden">
+                            <label for="InputoPassword">
+                                <small style="color: red">*</small>
+                                原密码: </label>
+                        </div>
+                        <div  class="col-xs-9" ng-class="{true:'has-error'}[myForm.opassword.$invalid&&!myForm.opassword.$pristine]">
+                            <input type="password" name="opassword"  id="InputoPassword" style="width:100%" class="form-control"
+                                   ng-model="oPassword" required> 
+                            
+                        </div>
+                        <div class="col-xs-6 col-xs-offset-3" >
+                            <span ng-show="myForm.opassword.$error.required&&!myForm.opassword.$pristine"
+                                  class="errormessage">请输入原始密码</span>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline">
+                        <div class="col-xs-3 text-align-right padding0" style="height:35px;line-height:35px;overflow:hidden">
+                            <label for="InputoNPassword">
+                                <small style="color: red">*</small>
+                                新密码: </label>
+                        </div>
+                        <div class="col-xs-9"  ng-class="{true:'has-error'}[myForm.npassword.$invalid&&!myForm.npassword.$pristine]">
+                            <input type="password" name="npassword"  id="InputoNPassword"    style="width:100%" class="form-control"
+                              ng-model="nPassword" ng-change="change()"  required>
+                        </div>
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <span ng-show="myForm.npassword.$error.required&&!myForm.npassword.$pristine"
+                                  class="errormessage">新密码不能为空。</span>
+                       </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9 col-xs-offset-3">
+                            <div class="progress" style="margin-bottom:0">
+                                <div class="progress-bar" style="width: 33%"
+                                     ng-class="{'begin':isBegin,'progress-bar-danger':isDanger,'progress-bar-success':isSuccess,'progress-bar-warning':isWarnning}">
+                                </div>
+                                <div class="progress-bar " style="width: 34%"
+                                     ng-class="{'begin1':isBegin1,'progress-bar-danger':isDanger,'progress-bar-success':isSuccess,'progress-bar-warning':isWarnning}">
+                                </div>
+                                <div class="progress-bar" style="width: 33%"
+                                     ng-class="{'begin2':isBegin2,'progress-bar-danger':isDanger,'progress-bar-success':isSuccess,'progress-bar-warning':isWarnning}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-xs-9 col-xs-offset-3">
+                                 <div class="col-xs-4 text-align-center">低</div>
+                                 <div class="col-xs-4 text-align-center">中</div>
+                                 <div class="col-xs-4 text-align-center">高</div>
+                         </div>
+                    </div>
+                    <div class="row form-group form-inline" style="margin-top:10px">
+                        <div class="col-xs-3 text-align-right padding0" style="height:35px;line-height:35px;overflow:hidden">
+                            <label for="InputoNPassword3"></span>
+                                    <small style="color: red">*</small>
+                                    确认密码: </label>
+                        </div>
+                        <div class="col-xs-9"  ng-class="{true:'has-error'}[myForm.npassword2.$invalid&&!myForm.npassword2.$pristine]">
+                            <input type="password" name="npassword2"  id="InputoNPassword3" class="form-control"
+                               style="width:100%"   ng-model="nPassword2" required>
+                        </div>
+                        <div class="col-xs-6 col-xs-offset-3" style="height:35px;line-height:35px;overflow:hidden">
+                            <span ng-show="myForm.npassword2.$error.required&&!myForm.npassword2.$pristine"
+                                      class="errormessage">请确认密码。</span>
+                                <span class="errormessage">{{message}}</span>
+                       </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-xs-3 col-xs-offset-1 text-align-center">
+                                <button class="buttonsearch btn btn-primary" ng-disabled="myForm.$invalid||sensitivity"
+                                        ng-click="$ctrl.ok()">
+                                                                                                                      确认
+                                </button>
+                            </div>
+                            <div class="col-xs-3 col-xs-offset-4 text-align-center">
+                                <button class="btn buttonstop btn-default" ng-click="$ctrl.cancel()">退出</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </script>
+    <!-- 修改密码成功-->
+    <script type="text/ng-template" id="editok">
+        <div class="modal-header modalHeader">
+            <button type="button" class="close" ng-click="$ctrl.cancel()">
+                &times;
+            </button>
+            <strong class="modal-title">Tip</strong>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row margin-top-20">
+                    <div class="col-md-3">
+                        <img alt="Brand" src="images/duihao.png">
+                    </div>
+                    <div class="col-md-9 row margin-top-20">修改成功!点击确认重新登录</div>
+                </div>
+                <br/>
+                <div class="row text-align-center">
+                    <button class="buttonsearch btn btn-primary" ng-click="$ctrl.ok()">确认</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- 修改密码失败 -->
+    <script type="text/ng-template" id="editfailed">
+        <div class="modal-header modalHeader">
+            <button type="button" class="close" ng-click="$ctrl.cancel()">&times;</button>
+            <strong class="modal-title">Tip</strong>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row margin-top-20">
+                    <div class="col-md-3">
+                        <img alt="Brand" src="images/jinggao.png">
+                    </div>
+                    <div class="col-md-9 margin-top-20">
+                        原密码输入错误
+                    </div>
+                </div>
+                <br/>
+                <div class="row text-align-center">
+                    <button class="buttonsearch btn btn-primary" ng-click="$ctrl.ok()">确认</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- 修改密码失败,会话失效 -->
+    <script type="text/ng-template" id="sessionmiss">
+        <div class="modal-header modalHeader">
+            <button type="button" class="close" ng-click="$ctrl.cancel()">
+                &times;
+            </button>
+            <strong class="modal-title">Tip</strong>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row margin-top-20">
+                    <div class="col-md-3">
+                        <img alt="Brand" src="images/jinggao.png">
+                    </div>
+                    <div class="col-md-9 margin-top-20">
+                        会话失效
+                    </div>
+                </div>
+                <br/>
+                <div class="row text-align-center">
+                    <button class="buttonsearch btn btn-primary" ng-click="$ctrl.ok()">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- 修改密码失败,会话失效 -->
+    <script type="text/ng-template" id="editTel.html">
+        <div class="modal-header modalHeader">
+            <button type="button" class="close" ng-click="$ctrl.cancel()">
+                &times;
+            </button>
+            <strong class="modal-title">修改手机号</strong>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row margin-top-20">
+                    <form role="form" novalidate name="myForm">
+						<div class="form-group has-feedback input"
+						ng-class="{true:'has-error'}[myForm.username.$invalid&&!myForm.username.$pristine]">
+						<label for="InputEmail1">Tel</label> <input type="text"
+							name="username" class="form-control" id="InputEmail1"
+							ng-model="tel"
+							ng-pattern="/^1[3|4|5|7|8][0-9]{9}$/"
+							placeholder="Enter PhoneNumber" required>
+						<div class="messagerow errormessage">
+							<span
+								ng-show="myForm.username.$error.required&&!myForm.username.$pristine">手机号是必须的。</span>
+							<span ng-show="myForm.username.$error.pattern">请输入正确的手机号。</span>
+						</div>
+					</div>
+                    </form>
+                </div>
+                <br/>
+                <div class="row text-align-center">
+                    <button class="buttonsearch btn btn-primary" ng-disabled="myForm.$invalid" ng-click="$ctrl.ok()">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </script>
+</head>
+<body id="content"  ng-controller="myController">
+<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="index"></a>
+		</header>
+<div class="mui-content">
+    <div class="mui-content-padded" style="margin: 0px;">
+        <form class="mui-input-group" >
+            <ul class="mui-table-view" >
+                <li class="mui-table-view-cell mui-media" style="background-color: rgb(227,145,85);" >
+                    <p style="text-align: center;font-size: large;margin-bottom: 30px;color: white">个人信息</p>
+                    <div style="text-align: center">
+                    <div ng-controller="categoryPic" class="errormessage">
+	                    <img  style="width: 115px;height:115px;border-radius: 50%;margin-bottom: 11px;" ng-src="{{user.image}}" onclick="document.getElementById('categoryPic').click()"/>
+	                    <input  type="file" name="categoryPic" accept="image/jpeg,image/jpeg,image/png" id="categoryPic" ng-model="categoryPic" file-model="categoryPic" style="display:none;"/>
+	               </div>
+                   <p style="text-align:center ;margin-bottom: 39px;color: white; font-size: 16px"><span id="group" ng-show="userType==2">督导组ID&nbsp;<span ng-bind="user.groupId"></span></span></p>
+                </li>
+                <li class="mui-table-view-cell mui-media" >
+                    <div class="mui-media-body  mui-pull-left" style="padding: 10px 0px;vertical-align: middle!important;">
+                        <span class=" mui-icon-left"><img src="./images/name@2x.png"/></span>
+                        <label class="mineLeft">姓名</label>
+                    </div>
+                    <div class="mui-media-body  mui-pull-right">
+                        <span ng-bind="user.name"  class="mineFont"></span>
+                    </div>
+                </li>
+           		<li class="mui-table-view-cell mui-media" ng-click="updateTel()">
+                    <div class="mui-media-body  mui-pull-left" style="padding: 10px 0px;">
+                        <span class="mui-icon-left"><img src="./images/phonenumber@2x.png"/></span>
+                        <label class="mineLeft">手机号</label>
+                    </div>
+                    <div class="mui-media-body  mui-pull-right " >
+                        <span   class="mineFont">{{user.tel}}</span>
+                    </div>
+                </li>
+                <li class="mui-table-view-cell mui-media" ng-click="editPassword()">
+                    <div class="mui-media-body  mui-pull-left" style="padding: 10px 0px;">
+                        <span class=" mui-icon-left"><img src="./images/Password@2x.png"/></span>
+                        <label class="mineLeft">更改登录密码</label>
+                    </div>
+                    <div class="mui-media-body  mui-pull-right" >
+                      <span class="mui-icon mui-icon-arrowright mui-icon-right"></span>
+                    </div>
+                </li>
+             </ul>
+        </form>
+     </div>
+</div>
+
+<script type="text/javascript" src="bootstrap/js/angular.js"></script>
+<script src="bootstrap/js/ui-bootstrap-tpls-2.2.0.js"></script>
+<script src="bootstrap/js/ng-file-upload.min.js"></script>
+<script src="bootstrap/js/ng-file-upload-shim.min.js"></script>
+<script src="bootstrap/js/vue.min.js"></script>
+<script src="bootstrap/js/vue-touch.js"></script>
+<script src="js/userInformation.js"></script>
+</body>
+</html>

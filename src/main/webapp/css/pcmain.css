@@ -1,0 +1,25 @@
+#logo{
+    width: 140px;
+    height:30px;
+}
+#con{
+    margin-top: 100px;
+}
+body{
+    font-family: 微软雅黑;
+    background-color: #eee;
+
+}
+#a,#b,#c,#d{
+    background-color:#eee;
+    background-color: #d4d4d4;
+
+}
+footer{
+    text-align: center;
+    font-size: small;
+    background-color: #c1e2b3;
+}
+
+
+

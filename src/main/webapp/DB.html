@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数据库的备份与恢复</title>
+<meta name="viewport"
+	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/login.css" rel="stylesheet" />
+<script src="bootstrap/js/angular.js"></script>
+<script src="bootstrap/js/angular-animate.js"></script>
+<script src="bootstrap/js/angular-sanitize.js"></script>
+<script src="bootstrap/js/ui-bootstrap-tpls-2.2.0.js"></script>
+<script src="bootstrap/js/html5shiv.min.js"></script>
+<script src="bootstrap/js/respond.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<button class="btn-success btn" ng-click="backInc()">备份增量</button>
+<button class="btn-success btn" ng-click="backAll()">备份全量</button>
+<button class="btn-danger btn" ng-click="recovery()">数据库恢复</button>
+<script type="text/javascript">
+var myApp=angular.module("myApp",['ui.bootstrap']);
+myApp.controller("myController",function($scope,$http,$uibModal){
+	$scope.backInc=function(){
+		$http({
+		 	method : 'get',
+		 	url : 'backupInc',
+		}).success(function(data){
+			if(data.result==true){
+				alert("增量备份成功");
+			}else{
+				alert("增量备份失败");
+			}
+		});
+	}
+	$scope.backAll=function(){
+		$http({
+		 	method : 'get',
+		 	url : 'backupAll',
+		}).success(function(data){
+			if(data.result==true){
+				alert("全量备份成功");
+			}else{
+				alert("全量备份失败");
+			}
+		});
+	}
+	$scope.recovery=function(){
+		$http({
+		 	method : 'get',
+		 	url : 'recovery',
+		}).success(function(data){
+			if(data.result==true){
+				alert("恢复成功");
+			}else{
+				alert("恢复失败");
+			}
+		});
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+body{
+    background-image: url("../images/b.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+#login{
+    width: 350px;
+    margin-top: 30px;
+}
+#form1{
+    height:300px;
+    margin-top: 180px;
+}
+footer{
+    text-align: center;
+    font-size: small;
+    background-color: #c1e2b3;
+}
+#logo{
+    width: 100px;
+    height:50px;
+
+}

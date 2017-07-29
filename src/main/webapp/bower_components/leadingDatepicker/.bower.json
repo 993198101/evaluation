@@ -1,0 +1,41 @@
+{
+  "name": "leading-datepicker",
+  "version": "1.0.2",
+  "homepage": "https://github.com/zgwangweijian/leadingDatepicker",
+  "authors": [
+    "wangwj <zgwangweijian@163.com>"
+  ],
+  "description": "leadingsoft datepicker for angularjs",
+  "main": [
+    "./dist/ld-datepicker.js",
+    "./dist/ld-datepicker.css"
+  ],
+  "keywords": [
+    "leadingsoft",
+    "datepicker"
+  ],
+  "ignore": [
+    ".gitignore",
+    "README.md",
+    "package.json",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": ">=1.2.14 <1.5.0",
+    "moment": "^2.10.6",
+    "moment-timezone": "^0.4.1"
+  },
+  "_release": "1.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.2",
+    "commit": "cdf4b7f02d1bc0cc0a8d3aa990519f29a4142a5b"
+  },
+  "_source": "https://github.com/zgwangweijian/leadingDatepicker.git",
+  "_target": "^1.0.2",
+  "_originalSource": "leadingDatepicker"
+}

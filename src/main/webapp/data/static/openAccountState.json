@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "text": "已申请",
+      "key": "applied"
+    },
+    {
+      "text": "已接受",
+      "key": "inuse"
+    },
+    {
+      "text": "已拒绝",
+      "key": "rejected"
+    },
+    {
+      "text": "已暂停",
+      "key": "suspended"
+    },
+    {
+      "text": "已重新申请",
+      "key": "reapplied"
+    },
+    {
+      "text": "已废弃",
+      "key": "discarded"
+    }
+  ]
+}

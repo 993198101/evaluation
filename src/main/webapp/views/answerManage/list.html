@@ -1,0 +1,135 @@
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li><i class="icon-share"></i> <span>答案管理</span></li>
+	</ul>
+</div>
+<div class="page-title"></div>
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet-header">
+				<div class="pull-left">
+					<a class="btn blue" href="javascript:;" ng-click="create()">新建</a>
+				</div>
+				<div class="pull-right">
+					<button class="btn red" data-toggle="collapse"
+						data-target="#search" aria-expanded="false" aria-controls="search">
+						<span>高级查询</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 高级查询 -->
+	<div class="row" style="background-color:#eee;">
+		<div class="form-horizontal collapse" aria-expanded="true" id="search">
+			<div class="portlet-body" style="margin-top: 10px">
+				<div class="form">
+					<!-- BEGIN FORM-->
+					<form name="form" class="form-horizontal" novalidate>
+						<div class="portlet box">
+							<!-- 基本信息开始 -->
+							<div class="row">
+								<form id="form" name="form" class="form-horizontal" novalidate>
+									<div class="form-body">
+										<div class="row">
+											<div class="col-md-11">
+												<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.teacherId.$touched || form.$submitted ) && form.teacherId.$invalid}">
+													<label class="control-label col-md-4">题目<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="teacherId"
+															 ng-model="searchable.aQid" required
+															select2>
+															<option value="0">--请选择--</option>
+															<option ng-repeat="x in questions" value="{{x.qId}}">{{x.qId}}:
+																{{x.qContent}}</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.teacherId.$error.required && (form.teacherId.$touched || form.$submitted)">
+															<p>必须选择一个题目</p>
+														</div>
+													</div>
+												</div>
+											</div>
+												<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.classId.$touched || form.$submitted ) && form.classId.$invalid}">
+													<label class="control-label col-md-4">分数<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="classId"
+															ng-model="searchable.aScore" required select2>
+															<option value="0">--请选择--</option>
+															<option value="4">4</option>
+															<option value="6">6</option>
+															<option value="8">8</option>
+															<option value="10">10</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.classId.$error.required && (form.classId.$touched || form.$submitted)">
+															<p>必须选择一个分数</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.classId.$touched || form.$submitted ) && form.classId.$invalid}">
+													<label class="control-label col-md-4">order<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="classId"
+															ng-model="searchable.aOrder"  select2>
+															<option value="">--请选择--</option>
+															<option value="A">A</option>
+															<option value="B">B</option>
+															<option value="C">C</option>
+															<option value="D">D</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.classId.$error.required && (form.classId.$touched || form.$submitted)">
+															<p>必须选择一个分数</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- 信息结束 -->
+						</div>
+						<!-- 内容页结束 -->
+					</form>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-1 col-md-offset-9">
+					<button type="button" class="btn btn-common" ng-click="search()">
+						确定</button>
+				</div>
+				<div class="col-md-1">
+					<button type="button" class="btn btn-success"
+						ng-click="resetSearchable()">重置</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 高级查询的结束 -->
+	<div class="row">
+		<ng-table columns="columns" sort="sort" order="order"
+			pageable="pageable" rows="rows"> </ng-table>
+	</div>
+	<!-- END MAIN CONTENT -->
+	<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+       <a class="btn blue btn-xs" ng-click="onActionClick(row.aId,'edit')">编辑</a>
+        <a class="btn blue btn-xs" ng-click="onActionClick(row.aId,'delete')">删除</a>
+        <!--<a class="btn blue btn-xs" ng-click="onActionClick(row,'changeStatus')">{{'start'==row.statue ? '禁用':'启用'}}</a>-->
+    </div>
+</script>
+	<!-- END Portlet PORTLET-->

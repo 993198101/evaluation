@@ -1,0 +1,52 @@
+<div class="list-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div id = "Content-Main">
+                <div id="{{start.id}}"
+                     back-id="{{start.id}}"
+                     ng-repeat="start in startList"
+                     repeat-finish
+                     class='item startDom' category="start">
+                    <p>开始</p>
+                </div>
+                <div id="{{task.id}}"
+                     back-id="{{task.id}}"
+                     ng-repeat="task in taskList"
+                     repeat-finish
+                     class='item task' ng-class="{taskPendingAudit:task.auditStatus != 'pass',taskPass:task.auditStatus == 'pass'}" category="task">
+                    <p ng-if="task.details.role" ng-bind="task.details.role"></p>
+                    <span ng-bind="task.details.task" ng-if="task.details.task"></span>
+                    <p ng-if="!task.details.task" style="margin-top: 15px">任务</p>
+                </div>
+                <div id="{{end.id}}"
+                     back-id="{{end.id}}"
+                     ng-repeat="end in endList"
+                     repeat-finish
+                     class='item end' category="end">
+                    <p>结束</p>
+                </div>
+                <div id="{{joinNode.id}}"
+                     back-id="{{joinNode.id}}"
+                     ng-repeat="joinNode in joinNodeList"
+                     repeat-finish
+                     class='item joinNode' category="joinNode">
+                    <p ng-bind="joinNode.name"></p>
+                </div>
+                <div id="{{branchNode.id}}"
+                     back-id="{{branchNode.id}}"
+                     ng-repeat="branchNode in branchNodeList"
+                     repeat-finish
+                     class='item branchNode' category="branchNode">
+                    <p ng-bind="branchNode.name"></p>
+                </div>
+                <div id="{{parallelNode.id}}"
+                     back-id="{{parallelNode.id}}"
+                     ng-repeat="parallelNode in parallelNodeList"
+                     repeat-finish
+                     class='item parallelNode' category="parallelNode">
+                    <p ng-bind="parallelNode.name"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

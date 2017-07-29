@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet"/>
+    <script src="bootstrap/js/angular.js"></script>
+    <script src="bootstrap/js/ionic.bundle.min.js"></script>
+    <script src="bootstrap/js/angular-animate.js"></script>
+    <script src="bootstrap/js/angular-sanitize.js"></script>
+    <script src="bootstrap/js/ui-bootstrap-tpls-2.2.0.js"></script>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <script src="bootstrap/js/angular-local_zh-cn.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/ng-template" id="myModelContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">你确定要进行测评吗</h3>
+        </div>
+        <div class="modal-body">
+            测评Id:{{eva.id}},
+            测评卷名：{{eva.name}},
+            测评老师名：{{eva.teacher.name}},
+            开始即计算时间，到点交卷
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">确定</button><button class="btn btn-danger" ng-click="cancel()">取消</button>
+        </div>
+    </script>
+    <title>main</title>
+</head>
+<body ng-controller="mainController"  >
+<div class="container">
+    <div class="row" style="padding: 5px;">
+        <pre><h1>欢迎您,<small>{{thisuser.userRealName}}同学</small></h1></pre>
+    </div>
+    <!--日期加选择教师控制器-->
+    <div ng-controller="DatepickerCtrl" class="row" style="padding-bottom: 10px;">
+        <div class="col-xs-6">
+            <div class="input-group">
+                <!--日历-->
+                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dat"
+                       is-open="popup1.opened" ng-required="true" close-text="关闭"
+                       clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" ng-change="dateChange()"/>
+                <span class="input-group-btn">
+                    <!--点击打开日历的小图标-->
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i
+                            class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <select class="form-control" ng-model="teacher" ng-change="teacherChange()">
+                <option value="-1">全部</option>
+                <option ng-repeat="x in teaShow"  value="{{x.id}}">{{x.name}}</option>
+            </select>
+        </div>
+    </div>
+    <!--显示内容的控制器-->
+    <div ng-controller="TabsCtrl" class="row" style="padding: 10px;background-color: #eeeeee;height:470px" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" >
+        <pre>一共有{{dataPage.showTotal}}页，当前位于{{dataPage.bigCurrentPage}}页</pre>
+        <uib-tabset active="active" type="tabs">
+            <uib-tab index="0" heading="未完成" select="selectUn()">
+                <!--所有已完成题目的div一行2个-->
+                <div ng-repeat="x in unfinished | limitTo : dataPage.itemsPerPage : (dataPage.bigCurrentPage-1)*dataPage.itemsPerPage"  class="col-xs-6" style="height: 200px;padding: 20px;">
+                    <!--居中显示的图片加文字-->
+                    <div class="col-xs-12" style="border: 1px solid;padding:10px;height: 160px" ng-click="doThisPaper(x)">
+                        <div style="width: 50px;  height:50px;margin: 0 auto">
+                            <img src="images/wechat.gif" style="width: 100%"/>
+                        </div>
+                        <div style="margin:  0 auto;padding-top:20px ">
+                            这是对{{x.teacher.name}}老师的评价卷-{{x.name}}
+                        </div>
+                    </div>
+                </div>
+                <span ng-show="unfinished.length==0">当前没有卷子</span>
+            </uib-tab>
+            <uib-tab index="1" heading="已完成" select="select()">
+                <div ng-repeat="x in finished | limitTo :dataPage.itemsPerPage:(dataPage.bigCurrentPage-1)*dataPage.itemsPerPage" class="col-xs-6" style="height: 200px;padding: 20px;">
+                    <!--居中显示的图片加文字-->
+                    <div class="col-xs-12" style="border: 1px solid;padding:10px;height: 160px" ng-click="doThisPaper(x)">
+                        <div style="width: 50px;  height:50px;margin: 0 auto">
+                            <img src="images/wechat.gif" style="width: 100%"/>
+                        </div>
+                        <div style="margin:  0 auto;padding-top:20px ">
+                            这是对{{x.teacher.name}}老师的评价卷-{{x.name}}
+                        </div>
+                    </div>
+                </div>
+                <span ng-show="finished.length==0">当前没有卷子</span>
+            </uib-tab>
+        </uib-tabset>
+        <hr/>
+    </div>
+</div>
+</body>
+</html>

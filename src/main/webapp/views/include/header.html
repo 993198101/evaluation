@@ -1,0 +1,72 @@
+<!-- BEGIN HEADER INNER -->
+<div class="page-header-inner">
+    <!-- BEGIN LOGO -->
+    <div class="page-logo">
+        <li class="lable_na">
+           评教后台管理系统
+        </li>
+        <a href="index.html">
+
+        </a>
+        <div class="menu-toggler sidebar-toggler hide">
+        </div>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+       data-target=".navbar-collapse">
+    </a>
+    <!-- END RESPONSIVE MENU TOGGLER -->
+    <!-- BEGIN TOP NAVIGATION MENU -->
+    <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown dropdown-user">
+                <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                    <img class="img-circle" ng-src="{{loginPortraitUrl}}"/>
+				<span class="username username-hide-on-mobile">
+				{{loginName}} </span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-default">
+                    <!--<li>-->
+                        <!--<a href="#/personal/passwordsetting.html">-->
+                            <!--<i class="icon-lock"></i>-->
+                            <!--密码修改-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#/personal/personalsetting.html">-->
+                            <!--<i class="icon-user-following"></i>-->
+                            <!--个人设置-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li class="divider">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="#">-->
+                    <!--<i class="icon-lock"></i> Lock Screen </a>-->
+                    <!--</li>-->
+                    <li>
+                        <a href="#" ng-click="exitLoginEvent()">
+                            <i class="icon-power"></i>
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- END USER LOGIN DROPDOWN -->
+
+        </ul>
+    </div>
+    <!-- END TOP NAVIGATION MENU -->
+    <div style="height: 35px;" class="hor-menu">
+        <ul class="nav navbar-nav pull-right">
+            <li class="classic-menu-dropdown" ng-repeat="menu in menus" ng-class="{'active':menu.key == 'BDM'}">
+                <a ng-href="{{menu.href}}" ng-bind="menu.title" ng-location>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- END HEADER INNER -->

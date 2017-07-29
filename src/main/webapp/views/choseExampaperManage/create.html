@@ -1,0 +1,110 @@
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li><i class="icon-share"></i> <a href="#/questionManage/list.html">评教安排管理</a>
+			<i class="fa fa-angle-right"></i></li>
+		<li><span>{{$state.current.data.pageTitle}}</span></li>
+	</ul>
+</div>
+<div class="page-title"></div>
+<div class="content">
+	<div class="portlet light">
+		<div class="portlet-heading">
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-add blue" ng-click="back()">
+						<span>返回 </span>
+					</button>
+					<button ng-if="!readonlyInput" class="btn btn-submit blue"
+						ng-click="submit(form)">
+						<span>保存 </span>
+					</button>
+					<button ng-if="!readonlyInput" class="btn btn-reset blue"
+						ng-click="reset(form)">
+						<span>重置 </span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="portlet-body" style="margin-top: 10px">
+			<div class="form">
+				<!-- BEGIN FORM-->
+				<form name="form" class="form-horizontal" novalidate>
+					<div class="portlet box">
+						<!-- 基本信息开始 -->
+						<div class="row">
+							<form id="form" name="form" class="form-horizontal" novalidate>
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-11">
+										    <div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.aContent.$touched || form.$submitted ) && form.aContent.$invalid}">
+													<label class="control-label col-md-4">学科名<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<input name="aContent" maxlength="20" ng-maxlength="20"
+															type="text" placeholder="学科名"
+															class="form-control form-control-inline"
+															ng-model="model.curName" required>
+														<div class="help-block"
+															ng-show="form.aContent.$error.required && (form.evaluationName.$touched || form.$submitted)">
+															<p>学科名为必填项</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.teacherId.$touched || form.$submitted ) && form.teacherId.$invalid}">
+													<label class="control-label col-md-4">学生评教卷子<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="teacherId"
+															ng-model="model.curSexamId" required
+															select2>
+															<option value="">--请选择--</option>
+															<option ng-repeat="x in examPapers" value={{x.examId}}>{{x.examId}}:
+																{{x.examName}}</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.teacherId.$error.required && (form.teacherId.$touched || form.$submitted)">
+															<p>必须选择一个学生评教卷子</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.teacherId.$touched || form.$submitted ) && form.teacherId.$invalid}">
+													<label class="control-label col-md-4">督导组评教卷子<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="teacherId"
+															ng-model="model.curGexamId" required
+															select2>
+															<option value="">--请选择--</option>
+															<option ng-repeat="x in examPapers" value={{x.examId}}>{{x.examId}}:
+																{{x.examName}}</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.teacherId.$error.required && (form.teacherId.$touched || form.$submitted)">
+															<p>必须选择一个督导组评教卷子</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- 信息结束 -->
+					</div>
+					<!-- 内容页结束 -->
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主内容结束-->

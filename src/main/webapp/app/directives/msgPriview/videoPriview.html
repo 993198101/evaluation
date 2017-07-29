@@ -1,0 +1,36 @@
+<div ng-if="videopriviewcontent">
+    <div class="msg-video-preview">
+        <div class="message">
+            <div class="body">
+                <div class="mix-inner" style="width:355px; height:240px;margin-left:-5px;">
+
+                    <videogular>
+                        <vg-media vg-src="source"></vg-media>
+                        <vg-controls vg-autohide="true" vg-autohide-time="3000">
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}<span style="margin-left: 10px">/</span></vg-time-display>
+                            <vg-time-display>{{ totalTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-volume>
+                                <vg-mute-button></vg-mute-button>
+                                <vg-volume-bar></vg-volume-bar>
+                            </vg-volume>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                        <!--视频播放屏幕中间按钮-->
+                        <!--<vg-overlay-play></vg-overlay-play>-->
+                    </videogular>
+
+                    <!--<video class='video-js vjs-default-skin' width='390px' controls height='240px'>-->
+                        <!--<source ng-src='{{videoSrc}}' type='video/mp4'/>-->
+                        <!--<source ng-src='{{videoSrc}}' type='video/webm'/>-->
+                        <!--<source ng-src='{{videoSrc}}' type='video/ogg'/>-->
+                    <!--</video>-->
+                </div>
+                <h4 class="bt" ng-bind="name"></h4>
+            </div>
+        </div>
+    </div>
+</div>

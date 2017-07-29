@@ -1,0 +1,59 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "title": "测评管理",
+      "key": "bits",
+      "enabled": true,
+      "href": "#/evaluationManage/list.html",
+      "className": "icon-share",
+      "type": "site"
+    },
+    {
+      "id": 2,
+      "title": "卷子管理",
+      "key": "bits",
+      "enabled": true,
+      "href": "#/examPaperManage/list.html",
+      "className": "fa fa-stumbleupon-circle",
+      "type": "site"
+    },
+    {
+      "id": 3,
+      "title": "题目管理",
+      "key": "bits",
+      "enabled": true,
+      "href": "#/questionManage/list.html",
+      "className": "icon-screen-tablet",
+      "type": "site"
+    },
+    {
+      "id": 4,
+      "title": "答案管理",
+      "key": "bits",
+      "enabled": true,
+      "href": "#/answerManage/list.html",
+      "className": "icon-envelope-letter",
+      "type": "site"
+    },
+    
+    {
+      "id": 5,
+      "title": "评教安排管理",
+      "key": "bits",
+      "enabled": true,
+      "href": "#/choseManage/list.html",
+      "className": "icon-user",
+      "type": "site"
+    },{
+       "id": 6,
+      "title": "学科卷子管理",
+      "key": "bits",
+      "enabled": true,
+      "href": "#/choseExampaperManage/list.html",
+      "className": "icon-user",
+      "type": "site"
+    }
+  ]
+}

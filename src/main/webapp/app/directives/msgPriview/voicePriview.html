@@ -1,0 +1,32 @@
+<div ng-if="voicepriviewcontent">
+    <div class="msg-voice-preview">
+        <ul class="chats">
+            <li class="in">
+                <img class="avatar img-responsive" alt=""
+                     src="../assets/global/img/broadcast.jpg" ng-src="{{appIcon}}">
+
+                <div style="background-color: #1BBC9B; margin-top: 10px;">
+                    <span class="arrow"></span>
+                    <span class="body">
+                        <div style="float:left;margin-top:10px;" class="voice-area" id="">
+                            <div style = "float:left;margin-top:10px;" class = "voice-area" ng-click='formCtrlPriviewPlay(preAudio)' >
+                                <button class="btn btnVoice"  ng-style="{width: (85+preAudio.duration/4)+'px'}" >
+                                    <span class='{{preAudio.paused ? "icon_sound" : "icon_sound_active" }}' ></span>
+                                    <span class='pull-right' ng-bind="preAudio.duration | trackTime"></span>
+                                </button>
+                            </div>
+                            <!--<audio style="display:none" ng-src="{{voiceSrc}}"></audio>-->
+                            <!--<div style="" class="mc_text_inner mc_text_inner_sound"-->
+                                 <!--ng-click="">-->
+                                <!--<span class="icon icon_sound" style="display: inline-block;"></span>-->
+                                <!--<span class="icon_sound_active" style="display: none;"></span>-->
+                                <!--<span class="mc_vertical"></span>-->
+                                <!--<span class='pull-right help-block time-length'>{{voiceDuration}}</span>-->
+                            <!--</div>-->
+                        </div>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

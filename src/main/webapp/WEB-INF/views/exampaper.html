@@ -1,0 +1,142 @@
+<!--Created by IntelliJ IDEA.-->
+<!--User: 陈帅-->
+<!--Date: 2016/11/19-->
+<!--Time: 16:16-->
+<!--To change this template use File | Settings | File Templates.-->
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge/">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>paper</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="././css/exampaper.css" rel="stylesheet">
+    <script src="./bootstrap/js/angular.js"></script>
+    <script src="./bootstrap/js/angular-animate.js"></script>
+    <script src="./bootstrap/js/angular-sanitize.js"></script>
+    <script src="./bootstrap/js/ui-bootstrap-tpls.js"></script>
+    <script src="./bootstrap/js/html5shiv.min.js"></script>
+    <script src="./bootstrap/js/respond.min.js"></script>
+    <script src="././js/exampaper.js"></script>
+    <script type="text/ng-template" id="myModelContent.html">
+            <div class="modal-header">
+            <h3 class="modal-title">暂停休息时间</h3>
+            </div>
+            <div class="modal-body">
+            点击确定继续答题
+            </div>
+            <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">
+            确认
+            </button>
+            </div>
+    </script>
+    <script type="text/ng-template" id="1.html">
+        <div class="modal-header">
+            <h3 class="modal-title">你确定要交卷吗</h3>
+        </div>
+        <div class="modal-body">
+            你有这些题未完成
+            <ul>
+                <li ng-repeat="x in arr track by $index" style="float:left">{{x}}<span ng-if="!$last">,</span><span ng-if="$last">.</span></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()" ng-disabled="notNull">
+                确认
+            </button>
+            <button class="btn btn-warning" ng-click="cancel()">退出</button>
+        </div>
+    </script>
+        <style>
+        .vertical-container{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+              align-items: center;
+        -webkit-justify-content: center;
+              justify-content: center;
+    }
+
+
+    </style>
+</head>
+<body ng-controller="paperController" style="background-color: #eeeeee;">
+<div class="container-fluid">
+    <div class="row vertical-container" style="background-color: black;padding: 5px;color: white">
+        <div class="col-xs-3">
+            <b>完成进度:</b>
+        </div>
+        <div class="col-xs-5 progress" style="margin-bottom:0">
+           <div  class="progress-bar progress-bar-striped active"
+                 role="progressbar" aria-valuenow="45" aria-valuemin="0"
+                 aria-valuemax="100" ng-style="complete">
+                <span>{{completeTip}}</span>
+            
+            </div>
+        </div>
+         <div class="col-xs-4" >
+            <button type="button" class="btn btn-default" id="buttonP" ng-click="open()" value="1">
+                <span class="glyphicon glyphicon-pause"></span>
+            </button>
+            <small id="time">{{h}}:{{min}}:{{sec}}</small>
+        </div>
+    </div>
+   <div class="row sr-only">
+        <div class="col-xs-8 col-xs-offset-2" id="tihao" style="padding:0">
+            <ul class="pagination" style="margin:0">
+                <li ng-repeat="x in questions" ng-class="{active:currentIdx==$index}" ng-show="showtihao($index)">
+                    <span ng-click="on($index)">{{($index+1)}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px;margin-top:20px;">
+        <div class="col-xs-6">
+             <pre>一共有{{questions.length}}页，当前位于{{currentIdx+1}}页</pre>
+        </div>
+        <div class="col-xs-6">
+            <div class="input-group">
+                <label for="search" class="sr-only" >搜索</label>
+                <input type="text" class="form-control" ng-model="goto1" id="search" placeholder="根据题号进行搜索">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="goto()"><span class="glyphicon glyphicon-search"></span> </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6"><h3><small>测评对象：</small>{{teacherName}}<small>老师</small></h3></div>
+    </div>
+    <form class="form-horizontal" role="form" id="form1" method="get" name="form">
+        <div class="row">
+            <div class="col-xs-12" >
+                <ul style="padding:0">
+                    <li ng-repeat="x in questions" ng-class="{true:'hidden'}[notthis($index)]" style="margin:0;text-align:center; ">
+                                    <span class="lead"> {{$index+1}}：{{x.qContent}}</span>
+                        <ul style="padding-left:20%;margin-top:20px;">
+                            <li id="answers" ng-repeat="e in x.answers">
+                                <input name="{{e.aQid}}" value={{e.aScore}} ng-model="formData.ans[$parent.$index]" ng-click="process()"
+                                         type="radio" /> {{e.aOrder}}:{{e.aContent}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 divcenter">
+                <button type="button" class="btn-default btn" id="next" ng-click="next()">下一题</button>
+            </div>
+            <div class="col-xs-8 col-xs-offset-2 divcenter">
+                <button type="button" class="btn-default btn" id="pre" ng-click="pre()">上一题</button>
+            </div>
+            <div class="col-xs-8 col-xs-offset-2 divcenter">
+                <button type="button" class="btn-default btn" ng-click="open1('lg')" id="conf">交卷</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

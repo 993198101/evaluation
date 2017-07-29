@@ -1,0 +1,948 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<title>课程列表</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!--标准mui.css-->
+<link rel="stylesheet" href="css/mui.min.css">
+<!--App自定义的css-->
+<link rel="stylesheet" type="text/css" href="css/app.css" />
+<style>
+html, body {
+	min-height: 100%;
+	background-color: #efeff4;
+}
+
+.animated {
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+@
+-webkit-keyframes bounceInDown { 0%, 60%, 75%, 90%, 100% {
+	-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+0%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+60%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+25
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+25
+px
+,
+0);
+}
+75%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-10
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-10
+px
+,
+0);
+}
+90%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+5
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+5
+px
+,
+0);
+}
+100%
+{
+-webkit-transform
+:
+ 
+none
+;
+
+					
+transform
+:
+ 
+none
+;
+
+				
+}
+}
+@
+keyframes bounceInDown { 0%, 60%, 75%, 90%, 100% {
+	-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+0%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+60%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+25
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+25
+px
+,
+0);
+}
+75%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-10
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-10
+px
+,
+0);
+}
+90%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+5
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+5
+px
+,
+0);
+}
+100%
+{
+-webkit-transform
+:
+ 
+none
+;
+
+					
+transform
+:
+ 
+none
+;
+
+				
+}
+}
+.bounce-in-down {
+	-webkit-animation-name: bounceInDown;
+	animation-name: bounceInDown;
+}
+
+@
+-webkit-keyframes fadeInDown { 0%, 60%, 75%, 90%, 100% {
+	-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+0%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+60%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+75%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+90%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+100%
+{
+-webkit-transform
+:
+ 
+none
+;
+
+					
+transform
+:
+ 
+none
+;
+
+				
+}
+}
+@
+keyframes fadeInDown { 0%, 60%, 75%, 90%, 100% {
+	-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+0%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+60%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+75%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+90%
+{
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+100%
+{
+-webkit-transform
+:
+ 
+none
+;
+
+					
+transform
+:
+ 
+none
+;
+
+				
+}
+}
+.fade-in-down {
+	-webkit-animation-name: fadeInDown;
+	animation-name: fadeInDown;
+}
+
+@
+-webkit-keyframes bounceOutUp { 20% {
+	-webkit-transform: translate3d(0, -10px, 0);
+	transform: translate3d(0, -10px, 0);
+}
+
+40%,
+45%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+20
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+20
+px
+,
+0);
+}
+100%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+}
+@
+keyframes bounceOutUp { 20% {
+	-webkit-transform: translate3d(0, -10px, 0);
+	transform: translate3d(0, -10px, 0);
+}
+
+40%,
+45%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+20
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+20
+px
+,
+0);
+}
+100%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+}
+.bounce-out-up {
+	-webkit-animation-name: bounceOutUp;
+	animation-name: bounceOutUp;
+}
+
+@
+-webkit-keyframes fadeOutUp { 20% {
+	-webkit-transform: translate3d(0, 0px, 0);
+	transform: translate3d(0, 0px, 0);
+}
+
+40%,
+45%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+100%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+}
+@
+keyframes fadeOutUp { 20% {
+	-webkit-transform: translate3d(0, 0px, 0);
+	transform: translate3d(0, 0px, 0);
+}
+
+40%,
+45%
+{
+opacity
+:
+ 
+1;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+0
+px
+,
+0);
+}
+100%
+{
+opacity
+:
+ 
+0;
+-webkit-transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+transform
+:
+ 
+translate3d
+(0
+,
+-100%,
+0);
+}
+}
+.fade-out-up {
+	-webkit-animation-name: fadeOutUp;
+	animation-name: fadeOutUp;
+}
+
+.menu-open {
+	height: 100%;
+	width: 100%;
+}
+
+.menu-open .mui-scroll-wrapper {
+	position: absolute;
+	top: 48;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.menu-backdrop {
+	display: none;
+}
+
+.menu-open .menu-backdrop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	display: block;
+	z-index: 998;
+}
+
+.menu-wrapper {
+	position: absolute;
+	top: 48px;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	text-align: center;
+	background-color: #333;
+	width: 100%;
+}
+
+.menu-wrapper.hidden {
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	z-index: -1;
+}
+
+.menu {
+	width: 100%;
+}
+
+.menu .mui-table-view-inverted {
+	color: gray;
+	font-size: 19px;
+}
+
+.menu .mui-table-view-inverted .mui-table-view-cell:after {
+	height: 2px;
+	left: 0;
+	right: 0;
+}
+
+.menu-wrapper.mui-active, .menu-wrapper.mui-active .menu {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+#info {
+	padding: 20px 10px;
+}
+
+.title {
+	margin: 20px 15px 7px;
+	color: #6d6d72;
+	font-size: 15px;
+}
+
+#fudongceng a {
+	text-align: center;
+}
+
+#fudongceng p {
+	color: white;
+	margin-top: -15%;
+}
+
+#fudongceng img {
+	width: 50%;
+}
+
+#fudongceng div {
+	border-bottom: 1px solid white;
+	padding: 6px;
+}
+</style>
+</head>
+<body ng-controller="myController" id="app">
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"
+			id="icon-menu" href="index"></a>
+		<h1 class="mui-title">课程列表</h1>
+	</header>
+	<div class="mui-content">
+		<div class="title" id="term">2015-2016年第一学期</div>
+		<ul class="mui-table-view"
+			ng-class="{true:'mui-hidden',false:'mui-show'}[content]">
+			<li class="mui-table-view-cell mui-collapse"
+				ng-repeat="x in curriculums">
+				<a class="mui-navigate-right"> <span ng-bind="x.curName"></span>(<span
+					ng-bind="x.teacher.name"></span>)
+			    </a>
+				<div class="mui-collapse-content">
+				   <div style="padding-left:50px;color:red" ng-click="goto(x.examPaper.examId,x.cId)">{{x.examPaper.examName}}<span style="color:#8B7765;font-size:10px">--点击进入测评</span></div>
+                </div>
+			</li>
+		</ul>
+	</div>
+	<div
+		style="border-top-left-radius: 5px; border-bottom-left-radius: 5px; position: fixed; top: 200px; z-index: 20; right: 0; background-color: #f39554"
+		id="fudongceng">
+		<a id="menu-btn">
+			<div>
+				<img src="images/Collection@2x.png" alt="">
+				<p class="mui-tab-label">选择学期</p>
+			</div>
+
+		</a> <a href="#middlePopover">
+			<div>
+				<img src="images/Showings@2x.png" alt="">
+				<p class="mui-tab-label">联系教务</p>
+			</div>
+
+		</a> <a id="promptBtn">
+			<div>
+				<img src="images/Sign@2x.png" alt="">
+				<p class="mui-tab-label">建议</p>
+			</div>
+
+		</a>
+	</div>
+	<div id="menu-wrapper" class="menu-wrapper hidden">
+		<div id="menu" class="menu">
+			<ul class="mui-table-view mui-table-view-inverted">
+				<li class="mui-table-view-cell"><a href="javascript:;">2015-2016第一学期</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="javascript:;">2015-2016第二学期</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="javascript:;">2016-2017第一学期</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="javascript:;">2016-2017第二学期</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="javascript:;">2017-2018第一学期</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="menu-backdrop" class="menu-backdrop"></div>
+	<!--		弹出对话框			-->
+	<div id="middlePopover" class="mui-popover">
+
+
+		<div class="mui-content-padded">
+			<div class="mui-row">
+				<div class="mui-col-sm-1 mui-col-xs-1"></div>
+				<div class="mui-col-sm-3 mui-col-xs-3">
+					<img src="images/erweima.jpg" style="width: 70px;" />
+					<h5>扫码咨询</h5>
+				</div>
+				<div class="mui-col-sm-1 mui-col-xs-1"></div>
+
+				<div class="mui-col-sm-7 mui-col-xs-7">
+					教务秘书电话
+					<p class="number03">15503765568</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script src="bootstrap/js/mui.min.js"></script>
+<script>
+	
+</script>
+<script src="bootstrap/js/angular.js"></script>
+<script src="js/curriculum.js"></script>
+<script src="bootstrap/js/ui-bootstrap-tpls-2.2.0.js"></script>
+
+</html>

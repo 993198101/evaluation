@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>about</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<style>
+			h5{
+		        padding-top: 8px;
+		        padding-bottom: 8px;
+		        text-indent: 12px;
+		    }
+		    
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+				font-size: 15px;
+				margin-top:8px;
+				color: #333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">评教简介</h1>
+		</header>
+		<div class="mui-content" style="background-color:#fff">
+		    <h5 style="background-color:#efeff4">资讯</h5>
+		    <ul class="mui-table-view mui-grid-view">
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="people.html">
+		                <img class="mui-media-object" src="images/shuijiao.jpg">
+		                <div class="mui-media-body">可评教的人员</div></a></li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="score.html">
+		                <img class="mui-media-object" src="images/muwu.jpg">
+		                <div class="mui-media-body">分数统计规则</div></a></li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="qaintroduce.html"><img class="mui-media-object" src="images/cbd.jpg">
+		                <div class="mui-media-body">卷子题目简介</div></a></li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="back.html">
+		                <img class="mui-media-object" src="images/yuantiao.jpg">
+		                <div class="mui-media-body">后台统计规则简介</div></a></li>
+		    </ul>    
+		</div>
+	</body>
+	<script src="bootstrap/js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	</script>
+</html>

@@ -1,0 +1,46 @@
+  .vertical-container{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+              align-items: center;
+        -webkit-justify-content: center;
+              justify-content: center;
+    }
+ul li {
+    list-style-type: none;
+    text-align: center;
+
+}
+ul{
+	text-align:center;
+}
+#a{
+    list-style-type: none;
+    text-align: center;
+
+}
+#tihao{
+	text-align:center;
+}
+
+#conf,#pre
+{
+  
+   width: 200px;
+    margin-top:20px;
+}
+#next{
+   
+    width: 200px;
+    margin-top:20px;
+}
+#answers{
+	text-align:left;
+	margin-left:20%;
+
+}
+.divcenter{
+	padding:0;
+	text-align:center;
+}
+

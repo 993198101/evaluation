@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "text": "废弃",
+      "value": true,
+      "class": "c_grey"
+    },
+    {
+      "text": "启用",
+      "value": false,
+      "class": "c_green"
+    }
+  ]
+}

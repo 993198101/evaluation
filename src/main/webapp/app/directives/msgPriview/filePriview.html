@@ -1,0 +1,21 @@
+<div ng-if="filePriviewContent">
+    <ul class="chats">
+        <li class="in"><img class="avatar img-responsive" alt="" ng-src="{{appIcon}}"">
+            <div class="message" style="background-color: #1BBC9B; margin-top: 10px;">
+                <span class="arrow"></span> <span class="body">
+					<div style="height: 94px; width: 100%" class="mix-inner">
+                        <div id="fileTypeClass"
+                             style="width: 82px; height: 82px; float: left; margin-top: 6px;"
+                             show-icon="{{title}}"></div>
+                        <div style="width: 110px; height: 82px; float: left; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
+                             class="mix-details">
+                            <p ng-bind="title" ng-model="fileName" title="{{title}}"></p>
+
+                            <p id="fileSize" style="color: #8A7777;" ng-bind="fileSize" ng-model="fileSize"></p>
+                        </div>
+                    </div>
+				</span>
+            </div>
+        </li>
+    </ul>
+</div>

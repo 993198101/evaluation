@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" ng-app="evaluation.admin">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>评教后台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+<link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="../assets/admin/pages/css/login2.css" rel="stylesheet" type="text/css"/>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME STYLES -->
+<link href="../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+<link href="../assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+<link href="../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login" ng-controller="logincontroller">
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+<div class="menu-toggler sidebar-toggler">
+</div>
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- BEGIN LOGO -->
+<div class="logo">
+	<h2 style="color: white;font-weight: 500">教师测评系统后台管理</h2>
+</div>
+<!-- END LOGO -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+	<!-- BEGIN LOGIN FORM -->
+	<form class="login-form">
+		<div class="form-title">
+			<span class="form-title">管理员你好,</span>
+			<span class="form-subtitle">请登录.</span>
+		</div>
+		<div class="alert alert-danger" ng-class="{true: 'display-hide', false: 'inactive'}[isLogin]">
+			<button class="close"  ng-click="close(0)"></button>
+			<span>账号和密码均不能为空！</span>
+		</div>
+		<div class="alert alert-danger " ng-class="{true:'display-hide'}[isReturn]">
+			<button class="close" data-close="alert" ng-click="close(1)"></button>
+			<span>{{message}}</span>
+		</div>
+		<div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Username</label>
+			<input class="form-control form-control-solid placeholder-no-fix" type="text"  placeholder="账号" name="username" ng-model="username"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">Password</label>
+			<input class="form-control form-control-solid placeholder-no-fix" type="password"  placeholder="密码" name="password" ng-model="password"/>
+		</div>
+		<div class="form-actions">
+			<button type="button" class="btn btn-primary btn-block uppercase" ng-click="login()">登录</button>
+		</div>
+		<div class="form-actions">
+			<div class="pull-left">
+				<label class="rememberme check">
+				<input type="checkbox" name="remember" ng-model="remeberUsername"/>记住账号</label>
+			</div>
+			<div class="pull-right forget-password-block">
+				<a href="javascript:void(0);" id="forget-password" class="forget-password">忘记密码?</a>
+			</div>
+		</div>
+		<div class="login-options">
+			<h4 class="pull-left">其他方式登录</h4>
+			<ul class="social-icons pull-right">
+				<li>
+					<a class="social-icon-color facebook" data-original-title="facebook" href="javascript:void (0);"></a>
+				</li>
+				<li>
+					<a class="social-icon-color twitter" data-original-title="Twitter" href="javascript:void (0);"></a>
+				</li>
+				<li>
+					<a class="social-icon-color googleplus" data-original-title="Goole Plus" href="javascript:void (0);"></a>
+				</li>
+				<li>
+					<a class="social-icon-color linkedin" data-original-title="Linkedin" href="javascript:void (0);"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="create-account">
+			<p>
+				<a href="javascript:void (0);" id="register-btn">新建账号</a>
+			</p>
+		</div>
+	</form>
+	<!-- END LOGIN FORM -->
+	<!-- BEGIN FORGOT PASSWORD FORM -->
+	<form class="forget-form">
+		<div class="form-title">
+			<span class="form-title">忘记密码了?</span>
+			<span class="form-subtitle">输入重置码/备用码重置密码.</span>
+		</div>
+		<div class="form-group">
+			<input class="form-control placeholder-no-fix" type="text"  placeholder="账号" ng-model="username"/>
+		</div>
+		<div class="form-group">
+			<input class="form-control placeholder-no-fix" type="password"  placeholder="重置码/备用码" ng-model="resetCode"/>
+		</div>
+		<div class="form-actions">
+			<button type="button" id="back-btn" class="btn btn-default">后退</button>
+			<button type="button"  class="btn btn-primary uppercase pull-right" ng-click="resetPassword()">重置密码</button>
+		</div>
+	</form>
+	<!-- END FORGOT PASSWORD FORM -->
+	<!-- BEGIN REGISTRATION FORM -->
+	<form class="register-form" name="registerForm" novalidate>
+		<div class="form-title">
+			<span class="form-title">注册</span>
+		</div>
+		<p class="hint">
+			 输入账号信息:
+		</p>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">账号</label>
+			<input class="form-control placeholder-no-fix" type="text" placeholder="账号" name="newUsername" ng-model="newUsername" required/>
+		</div>
+		<div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">密码</label>
+			<input class="form-control placeholder-no-fix" type="password" placeholder="密码" ng-model="newPassword" required/>
+		</div>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">真实姓名</label>
+			<input class="form-control placeholder-no-fix" type="text" placeholder="真实姓名" ng-model="userRealName" required/>
+		</div>
+
+
+		<p class="hint">
+			 输入管理员邀请码:
+		</p>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">邀请码</label>
+			<input class="form-control placeholder-no-fix" type="password"  placeholder="邀请码" ng-model="inviteCode" required/>
+		</div>
+
+		<div class="form-group margin-top-20 margin-bottom-20">
+			<label class="check">
+			<input type="checkbox" name="tnc" ng-model="agree" required/>
+			<span class="loginblue-font">I agree to the </span>
+			<a href="javascript:;" class="loginblue-link">Terms of Service</a>
+			<span class="loginblue-font">and</span>
+			<a href="javascript:;" class="loginblue-link">Privacy Policy </a>
+			</label>
+			<div id="register_tnc_error">
+			</div>
+		</div>
+		<div class="form-group margin-top-20 margin-bottom-20" style="color:red">
+		{{messageR}}
+		</div>
+		<div class="form-actions">
+			<button type="button" id="register-back-btn" class="btn btn-default">Back</button>
+			<button type="button" ng-click="register()" ng-disabled="registerForm.$invalid" id="register-submit-btn" class="btn btn-primary uppercase pull-right">Submit</button>
+		</div>
+	</form>
+	<!-- END REGISTRATION FORM -->
+</div>
+
+<!-- END LOGIN -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="../assets/global/plugins/respond.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="../assets/admin/pages/scripts/login.js" type="text/javascript"></script>
+<script src="../bootstrap/js/angular.js"></script>
+<script src="../js/adminLogin.js"></script>
+<script src="../bootstrap/js/ui-bootstrap-tpls-2.2.0.js"></script>
+<script src="../bootstrap/js/angular-cookies.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+jQuery(document).ready(function() {     
+Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+Login.init();
+Demo.init();
+});
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

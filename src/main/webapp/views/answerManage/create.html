@@ -1,0 +1,128 @@
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li><i class="icon-share"></i> <a href="#/answerManage/list.html">答案管理</a>
+			<i class="fa fa-angle-right"></i></li>
+		<li><span>{{$state.current.data.pageTitle}}</span></li>
+	</ul>
+</div>
+<div class="page-title"></div>
+<div class="content">
+	<div class="portlet light">
+		<div class="portlet-heading">
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-add blue" ng-click="back()">
+						<span>返回 </span>
+					</button>
+					<button ng-if="!readonlyInput" class="btn btn-submit blue"
+						ng-click="submit(form)">
+						<span>保存 </span>
+					</button>
+					<button ng-if="!readonlyInput" class="btn btn-reset blue"
+						ng-click="reset(form)">
+						<span>重置 </span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="portlet-body" style="margin-top: 10px">
+			<div class="form">
+				<!-- BEGIN FORM-->
+				<form name="form" class="form-horizontal" novalidate>
+					<div class="portlet box">
+						<!-- 基本信息开始 -->
+						<div class="row">
+							<form id="form" name="form" class="form-horizontal" novalidate>
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-11">
+											<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.aContent.$touched || form.$submitted ) && form.aContent.$invalid}">
+													<label class="control-label col-md-4">答案<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<input name="aContent" maxlength="20" ng-maxlength="20"
+															type="text" placeholder="答案名"
+															class="form-control form-control-inline"
+															ng-model="model.aContent" required>
+														<div class="help-block"
+															ng-show="form.aContent.$error.required && (form.evaluationName.$touched || form.$submitted)">
+															<p>答案名为必填项</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.teacherId.$touched || form.$submitted ) && form.teacherId.$invalid}">
+													<label class="control-label col-md-4">题目<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="teacherId"
+															ng-disabled="model.id!=0" ng-model="model.aQid" required
+															select2>
+															<option value="">--请选择--</option>
+															<option ng-repeat="x in questions" value="{{x.qId}}">{{x.qId}}:
+																{{x.qContent}}</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.teacherId.$error.required && (form.teacherId.$touched || form.$submitted)">
+															<p>必须选择一个题目</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.classId.$touched || form.$submitted ) && form.classId.$invalid}">
+													<label class="control-label col-md-4">分数<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="classId"
+															ng-model="model.aScore" required select2>
+															<option value="">--请选择--</option>
+															<option value="4">4</option>
+															<option value="6">6</option>
+															<option value="8">8</option>
+															<option value="10">10</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.classId.$error.required && (form.classId.$touched || form.$submitted)">
+															<p>必须选择一个分数</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6" ng-if="model.id!=0">
+												<div class="form-group"
+													ng-class="{ 'has-error' :(form.classId.$touched || form.$submitted ) && form.classId.$invalid}">
+													<label class="control-label col-md-4">order<span
+														class="text-danger">*</span></label>
+													<div class="col-md-8">
+														<select class="form-control" name="classId"
+															ng-model="model.aOrder" disabled select2>
+															<option value=""></option>
+															<option value="{{model.aOrder}}">{{model.aOrder}}</option>
+														</select>
+														<div class="help-block"
+															ng-show="form.classId.$error.required && (form.classId.$touched || form.$submitted)">
+															<p>必须选择一个分数</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- 信息结束 -->
+					</div>
+					<!-- 内容页结束 -->
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--主内容结束-->

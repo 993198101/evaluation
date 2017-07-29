@@ -1,0 +1,15 @@
+<div  ng-if="msgpriviewcontent != ''">
+    <div class="col-md-12 ovepc">
+        <ul class="chats">
+            <li class="in">
+                <img class="avatar img-responsive" ng-src="{{appIcon}}" alt="">
+                <div class="message" style="background-color: #1BBC9B; margin-top: 10px;">
+                    <span class="arrow"></span>
+                            <span style="width: 100%;" class="body break-all display">
+                                <div ng-bind-html = "msgpriviewcontent" ></div>
+                            </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
